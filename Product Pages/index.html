@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+         #navbar{
+    display:flex;
+    justify-content: space-around;
+    align-items:center;
+    background-color: rgb(74, 74, 141);
+    padding:10px;
+    font-size:20px;
+    margin-bottom: 100px;
+}
+a{
+    text-decoration: none;
+    color:white;
+}
+    </style>
+</head>
+<body>
+    <div id="navbar">
+        <div><a href="index.html">Home</a></div>
+        <div><a href="mens.html">Mens</a></div>
+        <div><a href="womens.html">Womens</a></div>
+    </div>
+     
+      <form id="formcart">
+        <label for="cheese">Mens Cart</label><br>
+         <input id="imageurl" type="text" placeholder="Enter image Url"/> 
+         <input id="name" type="text" placeholder="Enter name"/>
+         <input id="price" type="text" placeholder="Enter price"/>
+         <input id="strikedoffprice" type="text" placeholder="Enter strikedoffprice"/>
+         <input type="submit"/>
+      </form>   
+        
+      <form id="womencart">
+        <label for="cheese">Womens Cart</label><br>
+        <input id="Imageurl" type="text" placeholder="Enter image Url"/> 
+        <input id="Name" type="text" placeholder="Enter name"/>
+        <input id="Price" type="text" placeholder="Enter price"/>
+        <input id="Strikedoffprice" type="text" placeholder="Enter strikedoffprice"/>
+        <input type="submit"/>
+     </form>   
+       
+       
+</body>
+</html>
+<script>
+    document.querySelector("#formcart").addEventListener("submit",cart)
+    document.querySelector("#womencart").addEventListener("submit",fun)
+    var Array=JSON.parse(localStorage.getItem("Data"))||[];
+    var bag=JSON.parse(localStorage.getItem("data"))||[]
+
+
+    function cart(){
+    event.preventDefault();
+    
+    var obj={
+        Imgurl:formcart.imageurl.value,
+        Name:formcart.name.value,
+        Price:formcart.price.value,
+        Strikedoffprice:formcart.strikedoffprice.value
+    };
+     Array.push(obj);
+     console.log(Array);
+     localStorage.setItem("Data",JSON.stringify(Array))
+}
+  function fun(){
+      event.preventDefault();
+
+      var obj1={
+        imgurl:womencart.Imageurl.value,
+        name:womencart.Name.value,
+        price:womencart.Price.value,
+        strikedoffprice:womencart.Strikedoffprice.value
+    };
+    bag.push(obj1);
+    console.log(bag);
+    localStorage.setItem("data",JSON.stringify(bag))
+  }
+    
+  
+
+    
+    
+    
+</script>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mens</title>
+    <style>
+     #navbar{
+    display:flex;
+    justify-content: space-around;
+    align-items:center;
+    background-color: rgb(74, 74, 141);
+    padding:10px;
+    font-size:20px;
+    margin-bottom: 100px;
+}
+a{
+    text-decoration: none;
+    color:white;
+}
+#container{margin-top:-20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            display: grid;
+            grid-template-columns: repeat(4,auto);
+            grid-template-rows: repeat(1,auto);
+            gap: 20px; 
+            text-align: center;     
+}
+#container>div{
+            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;        
+            border-radius:8px;
+    }
+        div>img{
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+
+        }
+        img+p{
+            margin-top:-15px;
+        }
+        p+p{
+            height: 50px;
+           
+        }
+
+</style>
+</head>
+<body>
+    <div id="navbar">
+        <div><a href="index.html">Home</a></div>
+        <div><a href="mens.html">Mens</a></div>
+        <div><a href="womens.html">Womens</a></div>
+    </div>
+    <div id="container"></div>
+       
+</body>
+</html>
+<script>
+var Array=JSON.parse(localStorage.getItem("Data"))||[];
+console.log(Array)
+  
+ Array.forEach(function(el){
+    
+   var box=document.createElement("div")
+   
+   var img=document.createElement("img")
+   img.setAttribute("src",el.Imgurl);
+
+   var itemname=document.createElement("h4")
+   itemname.innerText=el.Name;
+
+   var price=document.createElement("p")
+   price.innerText=el.Price;
+
+   var strikedoffprice=document.createElement("p")
+   strikedoffprice.innerText=el.Strikedoffprice;
+
+   box.append(img,itemname,price,strikedoffprice)
+
+   document.querySelector("#container").append(box)
+ }) 
+
+</script>
