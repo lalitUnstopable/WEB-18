@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <style>
+      #lalit{
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        margin:auto;
+        height:550px;
+        width: 40%;
+      }
+      #pawar{
+       
+       font-size: 30px;;
+       margin-left: 75px;
+        height:550px;
+        width: 40%;
+      }
+      ::placeholder{
+        font-size:25px;
+      }
+     h3{
+        padding:10px;
+        text-align:center;
+        font-size:40px;
+      }
+      #submit{
+        padding:10px;
+        margin:auto;
+      }
+      #container{
+            display:flex;
+            justify-content: space-around;
+            background-color: grey;
+            font-size:28px;
+      }
+      #container>div>a{
+            color:white;
+            text-decoration: none;
+      }
+    </style>
+  
+</head>
+<body>
+    <div id="container">
+      <div><a href="signup.html">Home</a></div>
+    <div> <a href="login.html">Login</a></div>
+    
+    </div>
+    <div id="lalit">
+    <h3>Signup</h3>
+    <form id="pawar">
+      <label for="css">Email</label><br>
+      <input id="email" type="text" placeholder="Enter email" style="width: 450px; height: 40px";/><br>
+      <label for="css">Phone Number</label><br>
+      <input id="phone" type="text" placeholder="Enter Phone Number" style="width: 450px; height: 50px";/><br>
+      <label for="css">Password</label><br>
+      <input id="pass" type="text" placeholder="Enter password" style="width: 450px; height: 50px";/><br>
+      <button id="submit">Signup</button>
+    </form>
+    </div>
+  </body>
+  </html>
+  <script>
+    document.querySelector("button").addEventListener("click",myfun)
+    var signupid=JSON.parse(localStorage.getItem("signupids"))||[]
+   
+    function myfun(){
+    var Email =document.querySelector("#email").value
+    var Phone =document.querySelector("#phone").value
+    var Pass =document.querySelector("#pass").value
+ 
+     var obj={
+          
+    email:Email,
+    phone:Phone,
+    pass:Pass
+     }
+     signupid.push(obj)
+     localStorage.setItem("signupids",JSON.stringify(signupid))
+  }
+  </script>
+
+   
+  
+
+

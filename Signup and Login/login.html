@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+      #lalit{
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        margin:auto;
+        height:350px;
+        width: 40%;
+        margin-top: 20px;;
+      }
+      #pawar{
+       
+       font-size: 30px;;
+       margin-left: 75px;
+        height:350px;
+        width: 40%;
+      }
+      ::placeholder{
+        font-size:15px;
+      }
+     h3{
+        padding:10px;
+        text-align:center;
+        font-size:40px;
+      }
+      #submit{
+        padding:10px;
+        margin:auto;
+      }
+       #container{
+            display:flex;
+            justify-content: space-around;
+            background-color: grey;
+      }
+      #container>div>a{
+            color:white;
+            text-decoration: none;
+            font-size:28px;
+      }
+    </style>
+</head>
+<body>
+  <div id="container">
+    <div><a href="signup.html">Home</a></div>
+    <div> <a href="login.html">Login</a></div> </div>
+    <div id="lalit">
+     <form id="pawar">
+      <label for="Name">Name</label><br>
+      <input id="email" type="text" placeholder="enter email"><br>
+      <label for="pass">password</label><br>
+      <input id="pass" type="text" placeholder="enter password"><br><br>
+      <input type="submit"> 
+    </form>
+    </div>
+   
+</body>
+</html>
+<script>
+ 
+  document.querySelector("form").addEventListener("submit",loginpage)
+  function loginpage(){
+      var pass=document.querySelector("#pass").value 
+      var email=document.querySelector("#email").value 
+      var data=JSON.parse(localStorage.getItem("signupids"))
+     
+
+      data.map(function(el){
+          if(email == el.email&&pass==el.pass){
+              
+              alert("login success")
+          }
+          else{
+              alert("signup first")
+          }
+      })
+      
+  }
+
+</script>
